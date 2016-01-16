@@ -1,0 +1,12 @@
+<div class="slider">
+  <h1>Determine Your Disposabl Income</h1>
+</div>
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <% if @costs.present? %>
+      <%= render @costs %>
+    <% else %>
+      <h2>No costs added yet. <a href="/costs/new">Add one now</a></h2>
+    <% end %>
+  </div>
+</div>

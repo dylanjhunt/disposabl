@@ -1,0 +1,25 @@
+<div class="slider">
+  <h1>Determine Your Disposabl Income</h1>
+</div>
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 padding-top">
+    <div class="form-box">
+      <%= image_tag "square.gif" %>
+      <h2>Add New Costs</h2>
+      <%= render "layouts/form_errors", object: @cost %>
+      <%= form_for @cost do |f| %>
+        <div class="field">
+          <%= f.label :new_cost %>
+          <%= f.text_field :title, autofocus: true %>
+        </div>
+        <div class="field">
+          <%= f.label :amount %>
+          <%= f.text_field :amount, autofocus: true %>
+        </div>
+        <div class="field signup">
+          <%= f.submit "Cost" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
