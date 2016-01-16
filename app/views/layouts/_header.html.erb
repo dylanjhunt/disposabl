@@ -8,15 +8,12 @@
         <span class="icon-bar"></span>
       </button>
       <div class="logo-responsive">
-      <a class="navbar-brand " href="/"></a>
+      <a class="navbar-brand " href="/"><%= image_tag "disposabl-logo.png" %></a>
     </div>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/posts?sort=best"><i class="fa fa-thumbs-o-up"></i>  Best Tindering</a></li>
-        <li><a href="/posts?sort=worst"><i class="fa fa-thumbs-o-down"></i>  Worst Tindering</a></li>
-        <li><a href="/posts?sort=new"><i class="fa fa-line-chart"></i>  New</a></li>
-        <!--<li><a href="/posts"><i class="fa fa-refresh"></i>  Random</a></li>-->
+        <li><a href="/costs"><i class="fa fa-money"></i> My Costs</a></li>
       </ul>
       <ul class="pull-right nav navbar-nav">
         <li class="btn btn-theme">
@@ -25,18 +22,11 @@
             <div class="dropdown">
 
                 <button class="avatarsmall dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <% if current_user.profile_picture_uid %>
-                    <%= image_tag Dragonfly.app.remote_url_for(current_user.profile_picture_uid) %>
-                  <% else %>
                     <%= image_tag 'dog.jpg' %>
-                  <% end %>
                 </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li>
                 <%= link_to('Edit Profile', edit_user_registration_path) %>
-              </li>
-              <li>
-              <%= link_to('My Posts', posts_path(mine: true)) %>
               </li>
               <li>
                 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
@@ -47,9 +37,6 @@
           <li class="mobilelogout">
                 <%= link_to('Edit Profile', edit_user_registration_path) %>
               </li>
-          <li class="mobilelogout">
-            <%= link_to('My Posts', posts_path(mine: true)) %>
-          </li>
           <li class="mobilelogout">
                 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
           </li>

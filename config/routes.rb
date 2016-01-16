@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_for :costs
 
   root 'costs#index'
+
+  get 'costs' => 'costs#costs'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
