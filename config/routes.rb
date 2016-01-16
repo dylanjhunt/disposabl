@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   root 'costs#index'
 
-  get 'costs' => 'costs#costs'
+  get 'costs' => 'costs#show'
 
 end

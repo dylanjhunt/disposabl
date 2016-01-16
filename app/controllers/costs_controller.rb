@@ -2,11 +2,10 @@ class CostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @costs = Cost.all
   end
 
   def show
-    @cost = Cost.find_by_id(params[:id])
+    @costs = current_user.costs
   end
 
   def new
@@ -17,7 +16,7 @@ class CostsController < ApplicationController
     @cost = current_user.costs.build(cost_params)
     if @cost.save
       flash[:success] = "Added"
-      redirect_to '/costs'
+      redirect_to '/costs/costs'
     else
       render 'costs/new'
     end

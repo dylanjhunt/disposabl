@@ -1,33 +1,3 @@
 <div class="slider">
   <h1>Determine Your Disposabl Income</h1>
 </div>
-<div class="container">
-  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-    <h1>All Costs</h1>
-
-<table class="costtable">
-  <tr class="costrow">
-    <th class="costdata">Title</th>
-    <th class="costdata">Amount</th>
-    <th class="costdata"></th>
-  </tr>
-
-<% @costs.each do |cost| %>
-  <tr class="<%= cycle('even', 'odd') -%> costrow">
-    <td><%= cost.title %></td>
-    <td><%= cost.amount %></td>
-    <td><%= link_to "Remove", cost, method: :delete, data: { confirm: "Are you sure?" } %></td>
-  </tr>
-<% end %>
-<tr class="costrow">
-  <td><strong>Subtotal:</strong></td>
-  <td><strong><%= Cost.sum('amount') %></strong></td>
-  <td></td>
-</tr>
-</table>
-
-<br>
-
-<%= link_to "Add Cost", new_cost_path %>
-  </div>
-</div>

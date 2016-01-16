@@ -1,12 +1,33 @@
-<div class="slider">
+<div class="slidershow">
   <h1>Determine Your Disposabl Income</h1>
 </div>
 <div class="container">
-  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-    <% if @costs.present? %>
-      <%= render @costs %>
-    <% else %>
-      <h2>No costs added yet. <a href="/costs/new">Add one now</a></h2>
+  <h1 class="allcosts">All Monthly Costs</h1>
+  <div class="costcontainer col-xs-12 col-sm-10 col-sm-offset-1">
+    <div class="form-box">
+    <table class="costtable">
+      <tr class="costrow headinrow">
+        <th class="costdata">Title</th>
+        <th class="costdata">Amount</th>
+        <th class="costdata"></th>
+      </tr>
+    <% @costs.each do |cost| %>
+      <tr class="<%= cycle('even', 'odd') -%> costrow">
+        <td class="costdata"><%= cost.title %></td>
+        <td class="costdata"><%= cost.amount %></td>
+        <td class="costdata"><div class="btn-delete"><%= link_to "Remove", cost, method: :delete, data: { confirm: "Are you sure?" } %></div></td>
+      </tr>
     <% end %>
+    <tr class="costrow">
+      <td class="subtotal"><strong>Subtotal:</strong></td>
+      <td class="subtotal"><strong><%= Cost.where(user_id: @current_user.id).sum('amount') %></strong></td>
+      <td></td>
+    </tr>
+    </table>
+    <br>
+    <div class="btn-upload">
+    <%= link_to "Add Cost", new_cost_path %>
   </div>
+  </div>
+</div>
 </div>
