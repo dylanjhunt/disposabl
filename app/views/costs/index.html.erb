@@ -13,12 +13,17 @@
   </tr>
 
 <% @costs.each do |cost| %>
-  <tr class="costrow">
+  <tr class="<%= cycle('even', 'odd') -%> costrow">
     <td><%= cost.title %></td>
     <td><%= cost.amount %></td>
     <td><%= link_to "Remove", cost, method: :delete, data: { confirm: "Are you sure?" } %></td>
   </tr>
 <% end %>
+<tr class="costrow">
+  <td><strong>Subtotal:</strong></td>
+  <td><strong><%= Cost.sum('amount') %></strong></td>
+  <td></td>
+</tr>
 </table>
 
 <br>
