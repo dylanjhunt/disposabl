@@ -4,3 +4,7 @@
 <div class="container">
   <h1 class="allcosts">Your Disposable Income! - $<%= Income.where(user_id: @current_user.id).sum('amount') - Cost.where(user_id: @current_user.id).sum('amount') %>/month</h1>
 </div>
+
+<div class="container gif">
+  <img src="http://gifsec.com/wp-content/uploads/GIF/2014/03/Happy-Success-GIF.gif?gs=a">
+</div>
