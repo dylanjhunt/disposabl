@@ -1,28 +1,10 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  # The secret key used by Devise. Devise uses this key to generate
-  # random tokens. Changing this key will render invalid all existing
-  # confirmation, reset password and unlock tokens in the database.
-  # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
-  # by default. You can change it below and use your own secret key.
-  # config.secret_key = '61ed9b434963f75c5ea2f9814553ad3f54037e551f4da6176e4f0ea9513720988b86db6f5da9b69e1b738542997d4852152b3c58d75121ee96d2394fef38d928'
 
-  # ==> Mailer Configuration
-  # Configure the e-mail address which will be shown in Devise::Mailer,
-  # note that it will be overwritten if you use your own mailer class
-  # with default "from" parameter.
+  config.secret_key = '916d873ece71831922e8c5bd82bc08980371c9ce389f0f835808b80957114b76dee0db307ffdb98c10026e4f04f67abc7fe16db83070c01dcb0b6384b64f5477'
+
   config.mailer_sender = 'dylanhunt@me.com'
-
-  config.secret_key = '43287589247517589472598475892704'
-
-  # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
-
-  # ==> ORM configuration
-  # Load and configure the ORM. Supports :active_record (default) and
-  # :mongoid (bson_ext recommended) by default. Other ORMs may be
-  # available as additional gems.
   require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
