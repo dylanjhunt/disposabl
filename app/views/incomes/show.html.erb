@@ -1,8 +1,9 @@
 <div class="slidershow">
+  
 </div>
 
 <div class="container">
-  <h1 class="allcosts">All Monthly Costs</h1>
+  <h1 class="allcosts">All Monthly Income</h1>
   <div class="costcontainer col-xs-12 col-sm-10 col-sm-offset-1">
     <div class="form-box">
     <table class="costtable">
@@ -11,16 +12,16 @@
         <th class="costdata">Amount</th>
         <th class="costdata"></th>
       </tr>
-    <% @costs.each do |cost| %>
+    <% @incomes.each do |income| %>
       <tr class="<%= cycle('even', 'odd') -%> costrow">
-        <td class="costdata"><%= cost.title %></td>
-        <td class="costdata"><%= cost.amount %></td>
-        <td class="costdata"><div class="btn-delete"><%= link_to "Remove", cost, method: :delete, data: { confirm: "Are you sure?" } %></div></td>
+        <td class="costdata"><%= income.title %></td>
+        <td class="costdata"><%= income.amount %></td>
+        <td class="costdata"><div class="btn-delete"><%= link_to "Remove", income, method: :delete, data: { confirm: "Are you sure?" } %></div></td>
       </tr>
     <% end %>
     <tr class="costrow">
       <td class="subtotal"><strong>Subtotal:</strong></td>
-      <td class="subtotal"><strong><%= Cost.where(user_id: @current_user.id).sum('amount') %>/month</strong></td>
+      <td class="subtotal"><strong><%= Income.where(user_id: @current_user.id).sum('amount') %>/month</strong></td>
       <td></td>
     </tr>
     </table>

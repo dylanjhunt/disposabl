@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   resources :costs
 
+  resources :incomes
+
+  resources :all
+
   root 'costs#index'
 
   get 'costs' => 'costs#show'
