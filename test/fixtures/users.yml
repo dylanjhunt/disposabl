@@ -9,3 +9,9 @@ one: {}
 #
 two: {}
 #  column: value
+
+<% 1000.times do |n| %>
+user_<%= n %>:
+  username: <%= "user#{n}" %>
+  email: <%= "user#{n}@example.com" %>
+<% end %>
